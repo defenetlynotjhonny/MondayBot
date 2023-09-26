@@ -2,13 +2,13 @@ from openpyxl import Workbook
 import openpyxl
 
 file_path = "MondayBot\PostDB.xlsx"
-wb = openpyxl.load_workbook("MondayBot\PostDB.xlsx")
+wb = openpyxl.load_workbook(file_path)
 
 # Open the Excel file
-workbook = openpyxl.load_workbook(file_path)
+
 
 # Access the first sheet
-sheet = workbook.active
+sheet = wb.active
 
 for row in sheet.iter_rows(min_row=1, max_row=sheet.max_row, min_col=1, max_col=3):
     cell_a = row[0].value  # Column A
@@ -21,11 +21,17 @@ for row in sheet.iter_rows(min_row=1, max_row=sheet.max_row, min_col=1, max_col=
     # Do something with the values from each column
     #print(f"{cell_a}, {cell_b}, {cell_c}, \n")
     if cell_b == "Ready" and cell_c != None:
+        print(pos_b, pos_b,pos_b)
+        print(type(pos_b) , type(cell_b))
 
-        print(cell_b, pos_a)
+        sheet[str(pos_b)] = "Posted"
+        print("------------------ ",sheet[pos_b])
+        print(row)
+        
+        
         
         
     
     
-
+wb.save("data.xlsx") 
 wb.close()

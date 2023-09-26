@@ -4,7 +4,7 @@ from instabot import Bot
 
 from PIL import Image, ImageDraw, ImageFont
 
-font = ImageFont.truetype("Tests/fonts/NotoSans-Regular.ttf", 48)
+font = ImageFont.truetype("Arial", 48)
 im = Image.new("RGB", (200, 200), "white")
 d = ImageDraw.Draw(im)
 d.line(((0, 100), (200, 100)), "gray")
