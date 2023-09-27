@@ -17,9 +17,6 @@ def prepost(path):
         
 
         if cell_b == "Ready" and cell_c != None:
-            print(pos_b, pos_b,pos_b)
-            print(type(pos_b) , type(cell_b))
-
             sheet[str(pos_b)] = "Posted"
             wb.save("data.xlsx") 
             wb.close()
