@@ -3,7 +3,7 @@ import openpyxl
 
 
 def prepost(path):
-    file_path = "MondayBot\PostDB.xlsx"
+    file_path = "PostDB.xlsx"
     wb = openpyxl.load_workbook(file_path)
     sheet = wb.active
 
@@ -23,7 +23,7 @@ def prepost(path):
             return cell_c
         
         
-print(prepost("MondayBot\PostDB.xlsx"))
+print(prepost("PostDB.xlsx"))
         
     
     

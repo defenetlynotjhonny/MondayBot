@@ -1,23 +1,31 @@
 from datatreatment import prepost
 import sys
 from PIL import Image, ImageFont, ImageDraw 
-from stringbuilder import stringbuilder
+from stringbuilder import stringbuilder, text_wrap
+
+longteststring = " sans publicité, et sans recourir à lexploitation des données personnelles de ses utilisateurs.es rédacteurs des articles de Wikipédia sont bénévoles. Ils coordonnent leurs efforts au sein dune communauté collaborative, sans dirigeant. "
+
+
 
 
 
 def create_post():
 
-    content = prepost("MondayBot\PostDB.xlsx")
-    content = stringbuilder(content,4)
+    content = prepost("PostDB.xlsx")
+    
+    #content = stringbuilder(content,4)
 
 
-    image = Image.open('MondayBot\Images\Background.jpg')
+    image = Image.open('Images\Background.jpg')
     draw = ImageDraw.Draw(image)
 
-
-    font = ImageFont.truetype(r'MondayBot\Fonds\Orena solo mayusculas.ttf', 50)
-
-
+    fontsize = 45
+    font = ImageFont.truetype(r'Fonds\Hexa.ttf', fontsize)
+    content = text_wrap(content,font)
+    
+    print(font.getlength(content))
+    print(text_wrap(content,font,1080))
+    
 
 
     center_horizontal = (image.getbbox()[0] + image.getbbox()[2]) // 2
@@ -30,6 +38,15 @@ def create_post():
 
     image.putpixel(start_cords,5)
     image.show()
-    image.save("MondayBot\Images\copy.jpg")
+    image.save("Images\copy.jpg")
 
 create_post()
+
+
+
+
+
+
+
+
+
